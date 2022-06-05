@@ -310,7 +310,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.92688, 22.6401 )
 script = ExtResource( 5 )
 target = NodePath("../Player")
 orientation = Vector3( 0.393, 0, 0 )
-zoom = 12.0
+zoom = 13.0
 rotation_tween_duration = 0.2
 
 [node name="Camera" type="Camera" parent="World/CameraGimbal"]
@@ -318,4 +318,4 @@ current = true
 size = 1.86
 
 [node name="Player" parent="World" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993412, 3.66323, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.823, 3.66323, 0 )
