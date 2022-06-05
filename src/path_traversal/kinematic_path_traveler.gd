@@ -41,12 +41,7 @@ func move_along_path(delta: float, speed: float) -> void:
 	for i in get_slide_count():
 		_integrate(delta, get_slide_collision(i))
 		
-	_offset += speed * delta
-
-	if _loop:
-		_offset = wrapf(_offset, 0, path.curve.get_baked_length())
-	else:
-		_offset = clamp(_offset, 0, path.curve.get_baked_length())
+	_increment_offset(speed * delta)
 	
 	var displacement := path.curve.interpolate_baked(_offset, true) - global_transform.origin
 	var velocity_along_path := displacement / delta
@@ -79,6 +74,15 @@ func set_path(new_path: Path) -> void:
 		_loop = first_point.is_equal_approx(last_point)
 		
 	path = new_path
+
+
+func _increment_offset(increment: float) -> void:
+	_offset += increment
+
+	if _loop:
+		_offset = wrapf(_offset, 0, path.curve.get_baked_length())
+	else:
+		_offset = clamp(_offset, 0, path.curve.get_baked_length())
 
 
 func _is_axis_locked(axis: int) -> bool:
