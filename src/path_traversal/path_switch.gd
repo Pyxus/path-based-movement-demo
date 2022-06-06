@@ -1,7 +1,8 @@
 tool
 extends Area
 ## This is just an Area that looks for a path child
-## The patch switching system is pretty simple
+## A path traveler can then use an area to detect this switch and grab the path.
+## The patch switching system here is pretty simple and just meant as a demonstration.
 
 onready var _path: Path = _find_path()
 
